@@ -117,7 +117,7 @@ public class OpenTokAndroidPlugin extends CordovaPlugin implements
 
           DisplayMetrics metrics = new DisplayMetrics();
           cordova.getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
-          if (metrics.widthPixels > 480) {
+          if (metrics.widthPixels > SCREEN_WIDTH_LIMIT) {
               widthRatio = (float) mProperty.getDouble(ratioIndex) * metrics.density;
               heightRatio = (float) mProperty.getDouble(ratioIndex + 1) * metrics.density;
           } else {
@@ -185,7 +185,7 @@ public class OpenTokAndroidPlugin extends CordovaPlugin implements
         mPublisher = new Publisher(cordova.getActivity().getApplicationContext(), publisherName);
         DisplayMetrics metrics = new DisplayMetrics();
         cordova.getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        if (metrics.widthPixels > 480) {
+        if (metrics.widthPixels > SCREEN_WIDTH_LIMIT) {
             mPublisher.setStyle(BaseVideoRenderer.STYLE_VIDEO_SCALE, BaseVideoRenderer.STYLE_VIDEO_FILL);
         }
         mPublisher.setCameraListener(this);
@@ -279,7 +279,7 @@ public class OpenTokAndroidPlugin extends CordovaPlugin implements
         mSubscriber = new Subscriber(cordova.getActivity(), mStream);
         DisplayMetrics metrics = new DisplayMetrics();
         cordova.getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        if (metrics.widthPixels > 480) {
+        if (metrics.widthPixels > SCREEN_WIDTH_LIMIT) {
             mSubscriber.setStyle(BaseVideoRenderer.STYLE_VIDEO_SCALE, BaseVideoRenderer.STYLE_VIDEO_FILL);
         }
         mSubscriber.setVideoListener(this);
